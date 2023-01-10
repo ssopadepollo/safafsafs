@@ -3366,6 +3366,25 @@ end)
 
 --------------------STRUCTURES------------------------------------------------------
 
+St:Textbox("Keybind", true,function(t)
+    getgenv().sts = t
+    notif("+Added Keybind " .. t, 3)
+end)
+
+St:Button("Hut yourself",function()
+    game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(key)
+        if key == getgenv().sts then
+
+            local LocalPlayer = game:GetService("Players").LocalPlayer
+            local RootPart = LocalPlayer.Character.HumanoidRootPart
+            local cframe = RootPart.CFrame
+            local Remote = game:GetService("ReplicatedStorage").Events.PlaceStructure
+            
+            Remote:FireServer("Big Ol' Hut", cframe * CFrame.new(-1, -2.5, 1), 2)
+end    
+end)
+end)
+
 St:Textbox("Structure Name", true,function(t)
     getgenv().structurename = t
     notif("+Added Name" .. t, 3)
