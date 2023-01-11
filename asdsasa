@@ -695,11 +695,10 @@ Pl:Toggle("Auto Rebirh Lvl 100",function(t)
     getgenv().ra = t
     spawn(function()
         while getgenv().ra == true and wait() do
-            local plr = game.Players.LocalPlayer
-
-            if game:GetService("Players").LocalPlayer.PlayerGui.SecondaryGui.PlayerList.List[plr].LevelLabel.Text == 100 then
-            game:GetService("ReplicatedStorage").Events.Rebirth:FireServer()
-            end
+            local plr = game.Players.LocalPlayer.Text
+            if game.Players.LocalPlayer.PlayerGui.SecondaryGui.PlayerList.List[plr].LevelLabel.Text == "100" then
+                game:GetService("ReplicatedStorage").Events.Rebirth:FireServer()
+                end
         end
         end)
 end)
