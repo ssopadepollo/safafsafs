@@ -1329,9 +1329,9 @@ end)
 Farm:Label("Aura")
 
 Farm:Toggle("Aura - Feather Bush",function(t)
-    getgenv().aura2 = t
+    getgenv().aura34 = t
     spawn(function()
-        while getgenv().aura2 == true and wait() do
+        while getgenv().aura34 == true and wait() do
             wait()
             pcall(
                 function()
@@ -1343,20 +1343,28 @@ Farm:Toggle("Aura - Feather Bush",function(t)
                         local R
                         local S = math.huge, nil
                         for b, c in pairs(game.workspace:GetChildren()) do
-                            if c:IsA("Model") then
-                                if c~= game.Players.LocalPlayer.Character then
-                                for i, d in pairs(c:GetDescendants()) do
-                                    if d:IsA("BasePart") then
-                                    if (c.Position - game:GetService("Players").LocalPlayer.Character.UpperTorso.Position).magnitude < 50 then
-                        end
-                    end
+                            if c.Name:find("Feather Bush") then
+                                if c:FindFirstChildWhichIsA("BasePart") then
+                                    if
+                                        not c:FindFirstChild("Humanoid") and
+                                            c:FindFirstChild("Health")
+                                     then
+                                        if
+                                            (n.Position -
+                                                c:FindFirstChildWhichIsA("BasePart").Position).Magnitude <
+                                                S
+                                         then
+                                            R = c:FindFirstChildWhichIsA("BasePart")
+                                            S =
+                                                (n.Position -
+                                                c:FindFirstChildWhichIsA("BasePart").Position).Magnitude
+                                        end
+                                    end
+                                end
+                            end
                         end
                         return R
                     end
-                end
-            end
-                end
-                    end)
                     local U = getNear()
                     local ac = {}
                     for b, c in pairs(U.Parent:GetChildren()) do
@@ -1366,10 +1374,13 @@ Farm:Toggle("Aura - Feather Bush",function(t)
                     end
                     game:GetService("ReplicatedStorage").Events.SwingTool:FireServer(
                         o.RelativeTime.Value,
-                        ac)
+                        ac
+                    )
                 end
-            end)
-        end)
+            )
+        end
+    end)
+end)
 
 Farm:Toggle("Aura - Sun Tree",function(t)
     getgenv().aura3 = t
