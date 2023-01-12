@@ -25,6 +25,7 @@ local ESP = s:Tab("ESP")
 local Inv = s:Tab("Invisible")
 local Pick = s:Tab("Pickup Whitelist")
 local St = s:Tab("Structure")
+local Mp = s:Tab("Map")
 local dn = s:Tab("Donators")
 
 
@@ -682,6 +683,7 @@ end)
 Pl:Slider("FOV", 70,120,70, function(t)
     game:GetService'Workspace'.Camera.FieldOfView = t
 end)
+
 
 Pl:Slider("Slope Angle", 49,89,70, function(t)
     game.Players.LocalPlayer.Character.Humanoid.MaxSlopeAngle = t
@@ -3537,6 +3539,59 @@ end)
 St:Textbox("Whitelist 7", true,function(t)
     getgenv().structure7 = t
     notif("+Added " .. t, 3)
+end)
+
+--------------------------------------------------------------------------------------------------------MAP SECTION---------------------------
+
+Mp:Button("Max Fog",function()
+    while wait() do
+    game:GetService("Lighting").FogEnd = 200000
+    game:GetService("Lighting").FogStart = 200000
+    end
+end)
+
+Mp:Button("Default Map",function()
+    game:GetService("Lighting").FogEnd = 2000
+    game:GetService("Lighting").FogStart = 100
+    game:GetService("Lighting").ColorCorrection.Saturation = 0.2
+    game:GetService("Lighting").Blur.Size = 12
+    game:GetService("Lighting").Bloom.Size = 12
+    game:GetService("Lighting").Brightness = 3
+    local time = 14
+    game:GetService("Lighting").TimeOfDay = time..":00:00"
+end)
+
+Mp:Button("Day",function()
+    local time1 = 14
+    game:GetService("Lighting").TimeOfDay = time1..":00:00"
+end)
+
+Mp:Button("Night",function()
+    local time2 = 00
+    game:GetService("Lighting").TimeOfDay = time2..":00:00"
+end)
+
+Mp:Slider("Color Correction", 0.2, 1, 0.2, function(t)
+    game:GetService("Lighting").ColorCorrection.Saturation = t
+end)
+
+Mp:Slider("Bloom", 0, 100, 12, function(t)
+    game:GetService("Lighting").Bloom.Size = t
+end)
+
+Mp:Slider("Brightness", 0, 10, 3, function(t)
+    game:GetService("Lighting").Brightness = t
+end)
+
+Mp:Slider("Time", 0, 24, 12, function(t)
+    game:GetService("Lighting").TimeOfDay = t..":00:00"
+end)
+
+Mp:Button("Day Shader",function()
+    local time12 = 7
+    game:GetService("Lighting").TimeOfDay = time12..":00:00"
+    game:GetService("Lighting").Brightness = 5
+    game:GetService("Lighting").ExposureCompensation = 0.1
 end)
 
 dn:Label("Nothing ;-;")
