@@ -31,6 +31,7 @@ local dn = s:Tab("Donators")
 
 --eMPIEZA-------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------
+
 TP:Button("Old God",function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(210, -142, 1079)
 end)
@@ -845,6 +846,32 @@ Farm:Toggle("Harverest",function(t)
         end
     end)
 end)
+
+Farm:Toggle("Make Coin / To the nearest Coin Press",function(t)
+    getgenv().makecoin = t
+    spawn(function()
+        while getgenv().makecoin == true and wait() do
+            for i=1, 5 do
+                for i, v in pairs(game.Workspace.Deployables:GetChildren()) do
+                if v.Name == "Coin Press" then
+                if (v.PrimaryPart.Position - game:GetService("Players").LocalPlayer.Character.UpperTorso.Position).magnitude < 20 then
+                local item = "Gold"
+                game:GetService("ReplicatedStorage").Events.lnteractStructure:FireServer(v, item)
+                game:GetService("ReplicatedStorage").Events.lnteractStructure:FireServer(v, item)
+                game:GetService("ReplicatedStorage").Events.lnteractStructure:FireServer(v, item)
+                game:GetService("ReplicatedStorage").Events.lnteractStructure:FireServer(v, item)
+                game:GetService("ReplicatedStorage").Events.lnteractStructure:FireServer(v, item)
+
+                wait(0.001)
+                end
+                end
+                end
+                end
+        end
+    end)
+end)
+
+
 
 Farm:Label("TP Points")
 
