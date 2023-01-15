@@ -130,6 +130,28 @@ Main:Toggle("Fake Item Quantity",function(t)
     end)
 end)
 
+Main:Colorpicker("Color",Color3.fromRGB(255, 0, 0),function(t)
+    getgenv().slcos = t
+end)
+
+Main:Toggle("Armor Color (Fake)",function(t)
+    getgenv().ssc = t
+    spawn(function()
+        while getgenv().ssc == true and wait() do
+            local plr = game.Players.LocalPlayer.Character
+            for i, v in pairs(plr:GetDescendants()) do
+            if v.Name:find("Chestplate") or v.Name:find("Leg") or v.Name:find("Shoulder") or v.Name:find("Foot") or v.Name:find("Halo") then
+            for i, c in pairs(v:GetDescendants()) do
+            if c:IsA("Part") then
+            c.Color = getgenv().slcos
+            end
+            end
+            end
+            end
+        end
+    end)
+end)
+
 ---HEALS-------------------------------------------------------------------------------------------
 
 -- global variables
