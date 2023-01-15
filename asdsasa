@@ -111,6 +111,25 @@ Main:Toggle("Hide Lvl",function(t)
     end)
 end)
 
+Main:Textbox("Quantity", true,function(t)
+getgenv().cantidad = t
+    notif("+Added " .. t.."Quantity", 3)
+end)
+
+Main:Textbox("Item", true,function(t)
+    getgenv().cantidad1 = t
+        notif("+Added " .. t, 3)
+end)
+
+Main:Toggle("Fake Item Quantity",function(t)
+    getgenv().tc = t
+    spawn(function()
+        while getgenv().tc == true and wait() do
+            game:GetService("Players").LocalPlayer.PlayerGui.MainGui.RightPanel.Inventory.List[getgenv().cantidad1].QuantityImage.QuantityText.Text = getgenv().cantidad
+        end
+    end)
+end)
+
 ---HEALS-------------------------------------------------------------------------------------------
 
 -- global variables
