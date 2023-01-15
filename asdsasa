@@ -152,6 +152,28 @@ Main:Toggle("Armor Color (Fake)",function(t)
     end)
 end)
 
+Main:Colorpicker("Color",Color3.fromRGB(255, 0, 0),function(t)
+    getgenv().slcoss = t
+end)
+
+Main:Toggle("Bag Color (Fake)",function(t)
+    getgenv().sscs = t
+    spawn(function()
+        while getgenv().sscs == true and wait() do
+            local plr = game.Players.LocalPlayer.Character
+            for i, v in pairs(plr:GetDescendants()) do
+            if v.Name:find("Bag") then
+            for i, c in pairs(v:GetDescendants()) do
+            if c:IsA("Part") then
+            c.Color = getgenv().slcoss
+            end
+            end
+            end
+            end
+        end
+    end)
+end)
+
 ---HEALS-------------------------------------------------------------------------------------------
 
 -- global variables
