@@ -151,6 +151,94 @@ TP:Toggle("Bring Critters (Near)",function(t)
     end)
 end)
 
+TP:Textbox("Player", true,function(t)
+    getgenv().bringplayer = t
+        notif("+Added " .. t, 3)
+end)
+
+TP:Toggle("Bring Items (To)",function(t)
+    getgenv().bringplayer23 = t
+    spawn(function()
+        if getgenv().bringplayer23 then
+            wait()
+            pcall(
+                function()
+                    local mepos = game.Players[getgenv().bringplayer].Character.Head.Position
+                    for i, v in pairs(game.Workspace.Items:GetChildren()) do
+                        if v:IsA("Part") then
+                    
+                                          local ForceInstance = Instance.new("BodyPosition")
+                                        ForceInstance.Parent = v
+                                        ForceInstance.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+                                        ForceInstance.D = 1500
+                                        ForceInstance.P = 25000
+                                        ForceInstance.Position = mepos
+                    end
+                    end                    
+                end)
+        elseif not getgenv().bringplayer23 then
+            for i, v in pairs(game.Workspace.Items:GetChildren()) do
+                if v:IsA("Part") then
+                    for i, c in pairs(v:GetDescendants()) do
+                        if c:IsA("BodyPosition") then
+                            c:Destroy()
+                        end
+                    end
+                end
+            end            
+        end
+    end)
+end)
+
+TP:Textbox("Player", true,function(t)
+    getgenv().bringplayer2 = t
+        notif("+Added " .. t, 3)
+end)
+
+
+TP:Toggle("Bring Critters (Near)",function(t)
+    getgenv().bringcritters2 = t
+    spawn(function()
+        if getgenv().bringcritters2 then
+            wait()
+            pcall(
+                function()
+                    local mepos = game.Players[getgenv().bringplayer2].Character.Head.Position
+                    for i, v in pairs(game.Workspace.Critters:GetDescendants()) do
+                        if v:IsA("Model") then
+                    for i, d in pairs(v:GetDescendants()) do
+                        if d:IsA("UnionOperation") or d:IsA("Part") then 
+                                          local ForceInstance = Instance.new("BodyPosition")
+                                        ForceInstance.Parent = d
+                                        ForceInstance.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+                                        ForceInstance.D = 1500
+                                        ForceInstance.P = 25000
+                                        ForceInstance.Position = mepos
+                    end
+                        end    
+                    end
+            end                
+                end)
+        elseif not getgenv().bringcritters2 then
+            local mepos = game.Players.LocalPlayer.Character.Head.Position
+            for i, v in pairs(game.Workspace.Critters:GetDescendants()) do
+                if v:IsA("Model") then
+            for i, d in pairs(v:GetDescendants()) do
+                if d:IsA("UnionOperation") or d:IsA("Part") then 
+                    for i, o in pairs(d:GetDescendants()) do
+                        if o:IsA("BodyPosition") then
+                            o:Destroy()
+                        end
+                    end
+                end
+            end
+                end
+        end        
+        end
+    end)
+end)
+---------------------------BRING TO PLAYER
+
 
 Main:Label("Welcome to EzP Gui")
 Main:Label("Toggle GUI with Right Ctrl")
