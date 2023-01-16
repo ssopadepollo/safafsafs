@@ -52,6 +52,29 @@ TP:Button("Copy Void Link",function()
     setclipboard(tostring(cop))
 end)
 
+TP:Textbox("Player", true,function(t)
+    getgenv().vgoto = t
+        notif("+Added " .. t, 3)
+    end)
+
+TP:Button("Vehicle Goto",function()
+    local seat = game.Players.LocalPlayer.Character.Humanoid.SeatPart
+    local raft = seat.Parent
+    local enemy = getgenv().vgoto
+    local me = game.Players.LocalPlayer.Character
+            local posenemy = game.Players[enemy].Character.Head.Position
+            me.HumanoidRootPart.Anchored = true
+            me.Head.Anchored = true
+            me.LowerTorso.Anchored = true
+            raft:MoveTo(posenemy)
+    wait(1)
+    local me = game.Players.LocalPlayer.Character
+    me.Humanoid.Jump = true
+            me.HumanoidRootPart.Anchored = false
+            me.Head.Anchored = false
+            me.LowerTorso.Anchored = false    
+end)
+
 Main:Label("Welcome to EzP Gui")
 Main:Label("Toggle GUI with Right Ctrl")
 Main:Button("Destroy GUI",function()
