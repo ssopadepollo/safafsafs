@@ -75,6 +75,52 @@ TP:Button("Boat Goto",function()
             me.LowerTorso.Anchored = false    
 end)
 
+TP:Label("Bring To Me")
+
+TP:Toggle("Bring Boats (Near)",function(t)
+    getgenv().bringcrittersc = t
+    spawn(function()
+        if getgenv().bringcrittersc then
+            wait()
+            pcall(
+                function()
+                    local mepos = game.Players.LocalPlayer.Character.Head.Position
+                    for i, v in pairs(game.Workspace.Deployables:GetChildren()) do
+                        if v.Name:find("Raft") or v.Name:find("Sailboat") or v.Name:find("Boat") then
+                    for i, c in pairs(v:GetDescendants()) do
+                        if c:IsA("Part") or c:IsA("UnionOperation") or c:IsA("VehicleSeat") then
+                                          local ForceInstance = Instance.new("BodyPosition")
+                                        ForceInstance.Parent = c
+                                        ForceInstance.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+                                        ForceInstance.D = 1500
+                                        ForceInstance.P = 25000
+                                        ForceInstance.Position = mepos
+                    end
+                    end      
+                        end
+                end            
+                end)
+        elseif not getgenv().bringcrittersc then
+            local mepos = game.Players.LocalPlayer.Character.Head.Position
+            for i, v in pairs(game.Workspace.Deployables:GetChildren()) do
+                if v.Name:find("Raft") or v.Name:find("Sailboat") or v.Name:find("Boat") then
+            for i, c in pairs(v:GetDescendants()) do
+                if c:IsA("Part") or c:IsA("UnionOperation") or c:IsA("VehicleSeat") then
+                    for i, d in pairs(c:GetDescendants()) do
+                        if d:IsA("BodyPosition") then
+                            d:Destroy()
+
+            end
+                    end    
+        
+    end
+                end
+                end
+    end
+end
+    end)
+end)
+
 TP:Toggle("Bring Items (Near)",function(t)
     getgenv().bring = t
     spawn(function()
@@ -150,6 +196,8 @@ TP:Toggle("Bring Critters (Near)",function(t)
         end
     end)
 end)
+
+TP:Label("Bring To Players")
 
 TP:Textbox("Player", true,function(t)
     getgenv().bringplayer = t
