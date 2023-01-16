@@ -1049,6 +1049,9 @@ Pl:Toggle("Auto Rebirh Lvl 100",function(t)
         end)
 end)
 
+Pl:Button("Camera Noclip",function()
+    game:GetService("Workspace").Camera.CameraType = "Track"        
+end)
 Pl:Label("Noclip")
 
 
