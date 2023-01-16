@@ -57,7 +57,7 @@ TP:Textbox("Player", true,function(t)
         notif("+Added " .. t, 3)
     end)
 
-TP:Button("Vehicle Goto",function()
+TP:Button("Boat Goto",function()
     local seat = game.Players.LocalPlayer.Character.Humanoid.SeatPart
     local raft = seat.Parent
     local enemy = getgenv().vgoto
