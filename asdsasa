@@ -109,6 +109,49 @@ TP:Toggle("Bring Items (Near)",function(t)
     end)
 end)
 
+TP:Toggle("Bring Critters (Near)",function(t)
+    getgenv().bringcritters = t
+    spawn(function()
+        if getgenv().bringcritters then
+            wait()
+            pcall(
+                function()
+                    local mepos = game.Players.LocalPlayer.Character.Head.Position
+                    for i, v in pairs(game.Workspace.Critters:GetDescendants()) do
+                        if v:IsA("Model") then
+                    for i, d in pairs(v:GetDescendants()) do
+                        if d:IsA("UnionOperation") or d:IsA("Part") then 
+                                          local ForceInstance = Instance.new("BodyPosition")
+                                        ForceInstance.Parent = d
+                                        ForceInstance.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+                                        ForceInstance.D = 1500
+                                        ForceInstance.P = 25000
+                                        ForceInstance.Position = mepos
+                    end
+                        end    
+                    end
+            end                
+                end)
+        elseif not getgenv().bringcritters then
+            local mepos = game.Players.LocalPlayer.Character.Head.Position
+            for i, v in pairs(game.Workspace.Critters:GetDescendants()) do
+                if v:IsA("Model") then
+            for i, d in pairs(v:GetDescendants()) do
+                if d:IsA("UnionOperation") or d:IsA("Part") then 
+                    for i, o in pairs(d:GetDescendants()) do
+                        if o:IsA("BodyPosition") then
+                            o:Destroy()
+                        end
+                    end
+                end
+            end
+                end
+        end        
+        end
+    end)
+end)
+
+
 Main:Label("Welcome to EzP Gui")
 Main:Label("Toggle GUI with Right Ctrl")
 Main:Button("Destroy GUI",function()
@@ -3785,4 +3828,5 @@ Mp:Button("Day Shader",function()
     game:GetService("Lighting").ExposureCompensation = 0.1
 end)
 
-dn:Label("Nothing ;-;")
+dn:Label("HauntedGhoul#3782")
+dn:Label("Dipp#0001")
