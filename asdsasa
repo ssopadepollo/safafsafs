@@ -33,7 +33,7 @@ local dn = s:Tab("Donators")
 -------------------------------------------------------------------------------------------------------
 
 TP:Button("Old God",function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(210, -142, 1079)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(212, -139, 1083)
 end)
 
 TP:Button("Volcano",function()
