@@ -757,6 +757,50 @@ Pl:Button("No Animation",function()
     game.Players.LocalPlayer.Character.Humanoid.Animator:Destroy()
 end)
 
+Pl:Toggle("Fast Speed (Curved move)",function(t)
+    getgenv().rast = t
+    spawn(function()
+        while getgenv().rast == true and wait() do
+            _G.WS = 21;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
+            _G.WS = 18.5;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
+        end
+        end)
+end)
+
+Pl:Toggle("Fast Speed 2",function(t)
+    getgenv().rascti = t
+    spawn(function()
+        while getgenv().rascti == true and wait() do
+            _G.WS = 20;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
+            _G.WS = 18.5;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
+        end
+        end)
+end)
+
 Pl:Toggle("Auto Rebirh Lvl 100",function(t)
     getgenv().ra = t
     spawn(function()
