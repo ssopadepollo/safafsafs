@@ -3854,10 +3854,10 @@ Pick:Toggle("Pickup Item Chest",function(t)
             pcall(
                 function()
                     for i, v in pairs(game:GetService("Workspace").Deployables:GetChildren()) do
-                        if v.Name == "Chest" then
+                        if v.Name:find("Chest") then
                     if (v.PrimaryPart.Position - game:GetService("Players").LocalPlayer.Character.UpperTorso.Position).magnitude < 50 then
                     for i, c in pairs(v.Contents:GetChildren()) do
-                        if c:IsA("Part") then
+                        if c:IsA("Part") or c:IsA("UnionOperation") then
                     game:GetService("ReplicatedStorage").Events.Pickup:FireServer(c)
                     end
                     end
