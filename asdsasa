@@ -2416,7 +2416,7 @@ Farm:Toggle("Aura - Ancient Tree",function(t)
 end)
 
 
-Farm:Textbox("Fuel Name | Stick, Leave, Log, Coal", true,function(t)
+Farm:Textbox("Fuel Name | Wood, Leave, Log, Coal", true,function(t)
     getgenv().itemfuel3 = t
     notif("Added Fuel | " .. t, 3)
 end)
