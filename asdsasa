@@ -56,6 +56,28 @@ TP:Button("Copy Void Link",function()
     setclipboard(tostring(cop))
 end)
 
+TP:Toggle("Touch TP | Sky Islands",function(t)
+    getgenv().tpares = t
+    spawn(function()
+        if getgenv().tpares then
+            wait()
+            pcall(
+                function()
+                    loadstring(game:HttpGet("https://raw.githubusercontent.com/ssopadepollo/seriuslybro/main/wsp", true))()
+                    loadstring(game:HttpGet("https://raw.githubusercontent.com/ssopadepollo/puro1/main/arbolggiante", true))()
+                    loadstring(game:HttpGet("https://raw.githubusercontent.com/ssopadepollo/crystalicaca/main/ohhyeahhh", true))()
+end)
+elseif not getgenv().tpares then
+for i, v in pairs(game.Workspace:GetChildren()) do
+    if v.Name == "CrystalPart" or v.Name == "AncientPart" or v.Name == "SkyPart" then
+        v:Destroy()
+    end
+end
+end
+end)
+end)
+
+
 TP:Textbox("Player", true,function(t)
     getgenv().vgoto = t
         notif("+Added " .. t, 3)
@@ -4194,6 +4216,78 @@ Mp:Button("Day Shader",function()
     game:GetService("Lighting").TimeOfDay = time12..":00:00"
     game:GetService("Lighting").Brightness = 5
     game:GetService("Lighting").ExposureCompensation = 0.1
+-----------------STRUCTURES COLORED----------------------------
+for i, v in pairs(game.Workspace:GetDescendants()) do
+    if v.Name == "Crystal Lode" then
+        for i, c in pairs(v:GetDescendants()) do
+            if c:IsA("UnionOperation") or c:IsA("Part") then
+                c.Transparency = 0.5
+            end
+        end
+    end
+end
+for i, v in pairs(game.Workspace:GetDescendants()) do
+    if v.Name == "Ice Chunk" then
+        for i, c in pairs(v:GetDescendants()) do
+            if c:IsA("UnionOperation") or c:IsA("Part") then
+                c.Material = "Glass"
+                c.Transparency = 0.5
+                for i, v in pairs(game.Workspace:GetDescendants()) do
+                                    c.Color = Color3.fromRGB(242, 243, 243)
+                end
+        end
+        end
+    end
+end
+for i, v in pairs(game.Workspace:GetDescendants()) do
+    if v.Name == "Gold Node" then
+        for i, c in pairs(v:GetDescendants()) do
+            if c:IsA("UnionOperation") or c:IsA("Part") then
+                c.Material = "Metal"
+                c.Transparency = 0
+                c.Color = Color3.fromRGB(255, 176, 0)
+                end
+        end
+        end
+end
+for i, v in pairs(game.Workspace:GetDescendants()) do
+    if v.Name == "Iceberg" then
+        for i, c in pairs(v:GetDescendants()) do
+            if c:IsA("UnionOperation") or c:IsA("Part") then
+                c.Material = "Glass"
+                c.Transparency = 0.5
+                c.Color = Color3.fromRGB(242, 243, 243)
+                for i, v in pairs(game.Workspace:GetDescendants()) do
+                end
+        end
+        end
+    end
+end
+for i, v in pairs(game.Workspace:GetDescendants()) do
+    if v.Name == "Frozen Barbarian" then
+        for i, c in pairs(v:GetDescendants()) do
+            if c:IsA("UnionOperation") or c:IsA("Part") then
+                c.Material = "Glass"
+                c.Transparency = 0.5
+                c.Color = Color3.fromRGB(242, 243, 243)
+    
+        end
+        end
+    end
+end
+for i, v in pairs(game.Workspace:GetDescendants()) do
+    if v.Name == "Frozen Giant" then
+        for i, c in pairs(v:GetDescendants()) do
+            if c:IsA("UnionOperation") or c:IsA("Part") then
+                c.Material = "Glass"
+                c.Transparency = 0.5
+                c.Color = Color3.fromRGB(242, 243, 243)
+    
+        end
+        end
+    end
+end
+game.Workspace.Terrain.WaterColor = Color3.fromRGB(87, 109, 131)
 end)
 
 dn:Label("HauntedGhoul#3782")
