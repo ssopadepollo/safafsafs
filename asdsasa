@@ -33,11 +33,15 @@ local dn = s:Tab("Donators")
 -------------------------------------------------------------------------------------------------------
 
 TP:Button("Old God",function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(212, -139, 1083)
+    local me = game.Players.LocalPlayer.Character
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(218.935, -140.998, 1079.8)
+    me.Humanoid.Jump = true
 end)
 
 TP:Button("Volcano",function()
+    local me = game.Players.LocalPlayer.Character
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1064, -196, -427)
+    me.Humanoid.Jump = true
 end)
 
 TP:Button("Void TP",function()
@@ -131,7 +135,7 @@ TP:Toggle("Bring Items (Near)",function(t)
                     local mepos = game.Players.LocalPlayer.Character.Head.Position
                     for i, v in pairs(game.Workspace.Items:GetChildren()) do
                         if v:IsA("Part") then
-                    
+                    v.Anchored = false
                                           local ForceInstance = Instance.new("BodyPosition")
                                         ForceInstance.Parent = v
                                         ForceInstance.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
@@ -167,6 +171,7 @@ TP:Toggle("Bring Critters (Near)",function(t)
                         if v:IsA("Model") then
                     for i, d in pairs(v:GetDescendants()) do
                         if d:IsA("UnionOperation") or d:IsA("Part") then 
+                            d.Anchored = false
                                           local ForceInstance = Instance.new("BodyPosition")
                                         ForceInstance.Parent = d
                                         ForceInstance.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
@@ -2751,6 +2756,47 @@ ESP:Toggle("Chams",function(t)
     end)
 end)
 
+function espnombre()
+    for i, v in pairs(game.Players:GetPlayers()) do
+        if not v:FindFirstChildWhichIsA("BillboardGui") then
+        if v~= game.Players.LocalPlayer then
+        local ap = Instance.new("BillboardGui", v)
+        local ep = Instance.new("TextLabel", ap)
+        ap.Parent = v.Character.Head
+        ap.Name = v.Name
+        ap.ResetOnSpawn = false
+        ap.AlwaysOnTop = true
+        ap.LightInfluence = 0
+        ap.Size = UDim2.new(0, 10, 0, 10)
+        ep.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        ep.Text = v.Name
+        ep.Size = UDim2.new(0.0001, 0.00001, 0.0001, 0.00001)
+        ep.BorderSizePixel = 4
+        ep.BorderColor3 = Color3.new(255, 255, 255)
+        ep.BorderSizePixel = 0
+        ep.Font = "Code"
+        ep.TextSize = 15
+        ep.TextColor3 = Color3.fromRGB(255, 255, 255)                  
+        ep.TextStrokeTransparency = 0
+        ep.TextYAlignment = "Bottom"
+        end
+        end
+    end
+end
+
+function cancelesp()
+    for i, v in pairs(game.Players:GetPlayers()) do
+        if v~= game.Players.LocalPlayer then
+        for i, c in pairs(v.Character.Head:GetDescendants()) do
+        if c.Name:find(v.Name) then
+        c:Destroy()
+        end
+        end
+        wait(0.1)
+    end
+end
+end
+
 ESP:Toggle("Show Name",function(t)
     getgenv().ename = t
     spawn(function()
@@ -2758,43 +2804,10 @@ ESP:Toggle("Show Name",function(t)
             wait()
             pcall(
                 function()
-                    for i, v in pairs(game.Players:GetPlayers()) do
-                        if not v:FindFirstChildWhichIsA("BillboardGui") then
-                        if v~= game.Players.LocalPlayer then
-                        local ap = Instance.new("BillboardGui", v)
-                        local ep = Instance.new("TextLabel", ap)
-                        ap.Parent = v.Character.Head
-                        ap.Name = v.Name
-                        ap.ResetOnSpawn = false
-                        ap.AlwaysOnTop = true
-                        ap.LightInfluence = 0
-                        ap.Size = UDim2.new(0, 10, 0, 10)
-                        ep.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                        ep.Text = v.Name
-                        ep.Size = UDim2.new(0.0001, 0.00001, 0.0001, 0.00001)
-                        ep.BorderSizePixel = 4
-                        ep.BorderColor3 = Color3.new(255, 255, 255)
-                        ep.BorderSizePixel = 0
-                        ep.Font = "Code"
-                        ep.TextSize = 15
-                        ep.TextColor3 = Color3.fromRGB(255, 255, 255)                  
-                        ep.TextStrokeTransparency = 0
-                        ep.TextYAlignment = "Bottom"
-                        end
-                        end
-                end
+                    espnombre()
                 end)
         elseif not getgenv().ename then
-            for i, v in pairs(game.Players:GetPlayers()) do
-                if v~= game.Players.LocalPlayer then
-                for i, c in pairs(v.Character.Head:GetDescendants()) do
-                if c.Name:find(v.Name) then
-                c:Destroy()
-                end
-                end
-                wait(0.1)
-            end
-        end
+cancelesp()
         end
     end)
 end)
@@ -3827,6 +3840,29 @@ Pick:Toggle("Pickup Coins",function(t)
                                 end
                             end
                         end
+                    end
+                end)
+        end
+    end)
+end)
+
+Pick:Toggle("Pickup Item Chest",function(t)
+    getgenv().pickchest = t
+    spawn(function()
+        while getgenv().pickchest == true and wait() do
+            wait()
+            pcall(
+                function()
+                    for i, v in pairs(game:GetService("Workspace").Deployables:GetChildren()) do
+                        if v.Name == "Chest" then
+                    if (v.PrimaryPart.Position - game:GetService("Players").LocalPlayer.Character.UpperTorso.Position).magnitude < 50 then
+                    for i, c in pairs(v.Contents:GetChildren()) do
+                        if c:IsA("Part") then
+                    game:GetService("ReplicatedStorage").Events.Pickup:FireServer(c)
+                    end
+                    end
+                    end
+                    end
                     end
                 end)
         end
