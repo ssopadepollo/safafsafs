@@ -2545,8 +2545,8 @@ PlantB:Button("11 x 7",function()
     Remote:FireServer("Plant Box", cframe * CFrame.new(37, -2.5, -43), 2)
 end)
 
-ESP:Colorpicker("Cham Color",Color3.fromRGB(255, 0, 0),function(t)
-    getgenv().vcolor = t
+ESP:Colorpicker("Notification Color",Color3.fromRGB(255, 0, 0),function(t)
+    getgenv().chamcolor = t
 end)
 
 ESP:Toggle("Chams",function(t)
@@ -2557,32 +2557,28 @@ ESP:Toggle("Chams",function(t)
             pcall(
                 function()
                     local plr = game.Players.LocalPlayer
-                    local players = game.Players:GetPlayers()
 
-                    for i, v in pairs(players) do
-                    if v ~= game.Players.LocalPlayer then
-                        if v ~= game.Players.RatatuiHelp then
+                    for i, v in pairs(game.Players:GetPlayers()) do
+                    if v~= game.Players.LocalPlayer then
                     local esp = Instance.new("Highlight")
-                    esp.Name = "chams"
+                    esp.Name = "cham"
                     esp.FillTransparency = 0.5
-                    esp.FillColor = getgenv().vcolor
+                    esp.FillColor = getgenv().chamcolor
                     esp.OutlineColor = Color3.new(0, 0, 0)
                     esp.OutlineTransparency = 0
                     esp.Parent = v.Character
                     end
-                       end
                     end
             wait()
         end)
         elseif not getgenv().cham then
-            for i, v in pairs(game.Players:GetPlayers()) do
-                for i, c in pairs(v.Character:GetDescendants()) do
-                if c.Name == "chams" then
-                c:Destroy()
+            for i, o in pairs(game.Players:GetPlayers()) do
+                for i, c in pairs(o.Character:GetChildren()) do
+                    if c.Name == "cham" then
+                        c:Destroy()
+                    end
                 end
                 end
-            wait(0.1)
-        end
         end
     end)
 end)
