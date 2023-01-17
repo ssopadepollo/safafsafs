@@ -967,7 +967,7 @@ Comb:Label("The inf reach is for sale")
 
 ---Player-------------------------------------------------------------------------------------------
 
-Pl:Slider("Walkspeed", 16,20,18, function(ls)
+Pl:Slider("Walkspeed", 16,19,16, function(ls)
     _G.WS = ls;
     local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
     Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
@@ -976,7 +976,7 @@ Pl:Slider("Walkspeed", 16,20,18, function(ls)
     Humanoid.WalkSpeed = _G.WS;
 end)
 
-Pl:Slider("Jump Power", 1,65,60, function(t)
+Pl:Slider("Jump Power", 50,65,50, function(t)
    game.Players.LocalPlayer.Character.Humanoid.JumpPower = t
 end)
 
@@ -985,7 +985,7 @@ Pl:Slider("FOV", 70,120,70, function(t)
 end)
 
 
-Pl:Slider("Slope Angle", 49,89,70, function(t)
+Pl:Slider("Slope Angle", 49,89,49, function(t)
     game.Players.LocalPlayer.Character.Humanoid.MaxSlopeAngle = t
 end)
 
@@ -1011,6 +1011,90 @@ Pl:Toggle("Fast Speed (Curved move)",function(t)
             end)
             Humanoid.WalkSpeed = _G.WS;
             wait(0.5)
+            _G.WS = 21;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
+            _G.WS = 18.5;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
+            _G.WS = 21;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
+            _G.WS = 18.5;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
+            _G.WS = 21;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
+            _G.WS = 18.5;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
+            _G.WS = 21;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
+            _G.WS = 18.5;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
+            _G.WS = 21;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
+            _G.WS = 18.5;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
+            _G.WS = 21;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
+            _G.WS = 18.5;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
         end
         end)
 end)
@@ -1019,6 +1103,90 @@ Pl:Toggle("Fast Speed 2",function(t)
     getgenv().rascti = t
     spawn(function()
         while getgenv().rascti == true and wait() do
+            _G.WS = 20;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
+            _G.WS = 18.5;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
+            _G.WS = 20;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
+            _G.WS = 18.5;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
+            _G.WS = 20;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
+            _G.WS = 18.5;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
+            _G.WS = 20;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
+            _G.WS = 18.5;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
+            _G.WS = 20;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
+            _G.WS = 18.5;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
+            _G.WS = 20;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
+            _G.WS = 18.5;
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+            Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            Humanoid.WalkSpeed = _G.WS;
+            end)
+            Humanoid.WalkSpeed = _G.WS;
+            wait(0.5)
             _G.WS = 20;
             local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
             Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
@@ -1146,7 +1314,7 @@ Farm:Textbox("Plant Name", true,function(t)
     notif("Item set to " .. t, 3)
 end)
 
-Farm:Slider("Slider", 1,60,60, function(t)
+Farm:Slider("Slider", 1,60,1, function(t)
     getgenv().magnitude = t
 end)
 
@@ -1170,7 +1338,7 @@ Farm:Textbox("Bush Name", true,function(t)
     notif("Harverest " .. t, 3)
 end)
 
-Farm:Slider("Slider", 1,60,60, function(t)
+Farm:Slider("Slider", 1,60,1, function(t)
     getgenv().magnitudepaso = t
 end)
 
