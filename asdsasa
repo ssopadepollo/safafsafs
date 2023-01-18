@@ -1276,9 +1276,41 @@ Pl:Button("Noclip",function()
 end)
 end)
 
+
+
 Pl:Label("Extra")
 
 Pl:Label("Spam")
+
+Pl:Textbox("Item", true,function(t)
+    getgenv().txtss = t
+    notif("Item set to " .. t, 3)
+end)
+
+Pl:Textbox("Keybind", true,function(t)
+    getgenv().tost = t
+    notif("Item set to " .. t, 3)
+end)
+
+Pl:Button("Drop",function()
+
+    local mouse = game:GetService("Players").LocalPlayer:GetMouse()
+    mouse.KeyDown:connect(function(key)
+        if key == getgenv().tost  then
+            loops = true
+            while loops do
+game:GetService("ReplicatedStorage").Events.DropBagItem:FireServer(getgenv().txtss)
+                wait()
+            end
+        end
+    end)
+    mouse.KeyUp:connect(function(key)
+        if key == getgenv().tost then
+            loops = false
+        end
+end)
+end)
+
 
 Pl:Textbox("Text", true,function(t)
     getgenv().txt = t
